@@ -1,0 +1,46 @@
+<!-- Formulario unificado -->
+<form [formGroup]="autoForm" (ngSubmit)="guardarAuto()">
+    <!-- Datos del auto -->
+    <input formControlName="placa" type="text" placeholder="Número de Placa" required>
+    <input formControlName="marca" type="text" placeholder="Marca del vehículo" required>
+
+    <!-- Cliente -->
+    <select formControlName="cliente" required>
+        <option value="" disabled selected>Seleccione un cliente</option>
+        <option value="Lafise">Lafise</option>
+        <option value="INS">INS</option>
+        <option value="Qualitas">Qualitas</option>
+        <option value="Oceanicas">Oceanicas</option>
+        <option value="Purdy Seguros">Purdy Seguros</option>
+        <option value="ADISSA">ADISSA</option>
+        <option value="Mapfre">Mapfre</option>
+    </select>
+
+    <!-- Repuestos -->
+    <div formArrayName="repuestos">
+        <div *ngFor="let repuesto of repuestos.controls; let i = index" [formGroupName]="i">
+            <input formControlName="nombreRepuesto" type="text" placeholder="Nombre del Repuesto" required>
+            
+            <select formControlName="estado" required>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Llegó">Llegó</option>
+            </select>
+            
+            <input formControlName="imagen" type="file" accept="image/*"> <!-- Campo para subir imagen -->
+            
+            <!-- Campo de Fecha de Ingreso -->
+            <label>Fecha de Ingreso:</label>
+            <input formControlName="fechaIngreso" type="date" required> <!-- Campo para la fecha de ingreso -->
+
+            <button type="button" (click)="eliminarRepuesto(i)">Eliminar Repuesto</button>
+        </div>
+    </div>
+    
+    <button type="button" (click)="agregarRepuesto()">Agregar Repuesto</button>
+
+    <!-- Submit -->
+    <button type="submit">Guardar Auto y Repuestos</button>
+</form>
+
+
+  

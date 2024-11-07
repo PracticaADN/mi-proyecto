@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Repuestos de Carros - ADN Taller de Carrocería y Pintura</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="d1ae70e2-d17d-430c-8d6b-500d7272982c.jpeg" alt="Logo de ADN Taller de Carrocería y Pintura"
+                class="logo-img">
+        </div>
+        <div class="empresa">ADN Taller de Carrocería y Pintura</div>
+    </header>
+    <button class="logout-button" (click)="logout()">Cerrar sesión</button>
+    <h1 style="text-align:center; margin-top:20px;">Control de Repuestos de Carros</h1>
+    <app-agregar></app-agregar>
+
+    <div class="table_list">
+        <div class="header-actions">
+        </div>
+        
+        
+        <div class="table_list">
+            <div class="header-actions">
+              <div class="search-box">
+                <input [formControl]="searchText" placeholder="Buscar por placa..." type="text" />
+              </div>
+            </div>
+            
+            <!-- Tabla -->
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Número de Placa</th>
+                    <th>Marca Vehículo</th>
+                    <th>Cliente</th>
+                    <th>Repuestos</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let auto of paginatedAutos">
+                    <td>{{ auto.placa }}</td>
+                    <td>{{ auto.marca }}</td>
+                    <td>{{ auto.cliente }}</td>
+                    <td>
+                      <ul *ngIf="auto.repuestos">
+                        <li *ngFor="let repuesto of auto.repuestos">
+                          {{ repuesto.nombreRepuesto }} - {{ repuesto.estado }}
+                        </li>
+                      </ul>
+                      <span *ngIf="!auto.repuestos">Sin repuestos</span>
+                    </td>
+                    <td>
+                      <mat-icon class="button-edit" (click)="editar(auto)">edit</mat-icon>
+                      <mat-icon class="button-delete" (click)="eliminar(auto)">delete</mat-icon>
+                    </td>
+                    
+                  </tr>
+                </tbody>
+                
+              </table>
+            </div>
+          
+            <!-- Controles de paginación -->
+            <div class="pagination-controls">
+              <button (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+              <span>Página {{ currentPage }} de {{ totalPages }}</span>
+              <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+            </div>
+          </div>
+          
+
+    </div>
+
+    
+    <footer>
+        &copy; 2024 ADN Taller de Carrocería y Pintura
+    </footer>
+
+</body>
+
+</html>
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Repuestos de Carros - ADN Taller de Carrocería y Pintura</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="d1ae70e2-d17d-430c-8d6b-500d7272982c.jpeg" alt="Logo de ADN Taller de Carrocería y Pintura"
+                class="logo-img">
+        </div>
+        <div class="empresa">ADN Taller de Carrocería y Pintura</div>
+    </header>
+
+    <h1 style="text-align:center; margin-top:20px;">Control de Repuestos de Carros</h1>
+
+
+    <form [formGroup]="autoForm" (ngSubmit)="guardarAuto()">
+
+        <input formControlName="placa" type="text" placeholder="Número de Placa" required>
+        <input formControlName="marca" type="text" placeholder="Marca del vehículo" required>
+
+        <select formControlName="cliente" required>
+            <option value="" disabled selected>Seleccione un cliente</option>
+            <option value="Lafise">Lafise</option>
+            <option value="INS">INS</option>
+            <option value="Qualitas">Qualitas</option>
+            <option value="Oceanicas">Oceanicas</option>
+            <option value="Purdy Seguros">Purdy Seguros</option>
+            <option value="ADISSA">ADISSA</option>
+            <option value="Mapfre">Mapfre</option>
+        </select>
+
+
+        <div formArrayName="repuestos">
+            <div *ngFor="let repuesto of repuestos.controls; let i = index" [formGroupName]="i">
+                <input formControlName="nombreRepuesto" type="text" placeholder="Nombre del Repuesto" required>
+                <select formControlName="estado" required>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Llegó">Llegó</option>
+                </select>
+                <input formControlName="imagen" type="file" accept="image/*"> 
+                <button type="button" (click)="eliminarRepuesto(i)">Eliminar Repuesto</button>
+            </div>
+        </div>
+        <button type="button" (click)="agregarRepuesto()">Agregar Repuesto</button>
+
+
+   
+        <button type="submit">Guardar Auto y Repuestos</button>
+    </form>
+
+    <footer>
+        &copy; 2024 ADN Taller de Carrocería y Pintura
+    </footer>
+
+</body>
+
+</html>
+-->

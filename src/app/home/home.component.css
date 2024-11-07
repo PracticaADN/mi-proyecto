@@ -1,0 +1,205 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+}
+
+header {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.empresa {
+    font-size: 48px;
+    color: #39ff14;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.logo {
+    margin: 10px 0;
+}
+
+img.logo-img {
+    max-width: 120px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #39ff14;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input, select, button {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 2px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #39ff14;
+    outline: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #39ff14;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+img {
+    max-width: 100px;
+    border-radius: 8px;
+    border: 2px solid #39ff14;
+}
+
+.resultado {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #000000;
+    color: #fff;
+}
+
+.button-edit {
+    background-color: yellow;
+    color: black;
+}
+
+.button-delete {
+    background-color: red;
+    color: black;
+}
+
+.button-view {
+    background-color: rgb(0, 198, 0);
+    color: rgb(0, 0, 0);
+}
+.button-edit, .button-delete, .button-view {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px; /* Ancho del área del botón */
+    height: 36px; /* Altura del área del botón */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+
+.button-edit .mat-icon-button {
+    background-color: yellow;
+}
+
+.button-delete .mat-icon-button {
+    background-color: red;
+}
+
+.button-view .mat-icon-button {
+    background-color: rgb(0, 193, 0);
+}
+
+.button-edit:hover {
+    background-color: rgb(176, 176, 0);
+}
+
+.button-delete:hover {
+    background-color: rgb(184, 0, 0);
+}
+
+.button-view:hover {
+    background-color: rgba(0, 103, 0, 0.655);
+}
+
+.mat-icon {
+    font-size: 20px; /* Tamaño del ícono */
+}
+
+.table_list {
+    margin: 20px;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.search-box input {
+    flex-grow: 1; /* Hace que el input ocupe el espacio disponible */
+    margin-right: 10px; /* Espaciado entre el input y el botón */
+}
+
+.button_add {
+    white-space: nowrap; /* Evita que el texto del botón se divida en múltiples líneas */
+    padding: 10px 20px; /* Ajusta el relleno para que el botón sea menos ancho */
+    width: auto; /* Permite que el ancho del botón se ajuste al contenido */
+    min-width: 100px; /* Establece un ancho mínimo para el botón */
+    background-color: blue;
+}
+/* home.component.css o agregar.component.css, dependiendo de dónde quieras incluirlo */
+.custom-dialog-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente detrás del modal */
+    z-index: 1000; /* Asegura que el modal esté por encima del contenido */
+  }
+  
+  .mat-dialog-container {
+    background-color: white; /* Fondo blanco del modal */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px; /* Ajusta el tamaño máximo del modal */
+    width: 100%; /* Asegura que se ajuste a pantallas pequeñas */
+    max-height: 90vh; /* Para evitar que el modal se salga de la pantalla */
+    overflow-y: auto; /* Habilita el scroll si el contenido del modal es muy largo */
+  }
+  
+  
